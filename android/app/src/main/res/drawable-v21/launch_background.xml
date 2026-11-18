@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla de arranque nativa (Android 11 o anterior): el mismo degradado
+     del icono, para que no haya un fogonazo blanco antes de la animación. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_launcher_background" />
+</layer-list>

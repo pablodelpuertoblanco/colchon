@@ -1,0 +1,55 @@
+name: hogar_en_cifras
+description: Gestión de gastos, ingresos, presupuestos y compra del hogar.
+publish_to: 'none'
+version: 1.3.0+5
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Formato de moneda y fechas en español (la versión la fija flutter_localizations)
+  intl: any
+
+  # Estado e inyección de dependencias
+  flutter_riverpod: ^3.3.0
+
+  # Base de datos SQLite tipada y reactiva
+  drift: ^2.35.0
+  drift_flutter: ^0.3.1
+  path_provider: ^2.1.5
+  path: ^1.9.0
+
+  # Identificadores únicos (preparados para sincronizar en el futuro)
+  uuid: ^4.5.1
+
+  # Gráficos
+  fl_chart: ^1.2.0
+
+  # Exportar y compartir archivos, restaurar copias
+  share_plus: ^13.3.0
+  file_picker: ^13.3.0
+
+  # Pantalla encendida mientras se hace la compra
+  wakelock_plus: ^1.8.0
+
+  # Leer el Excel (.xlsx) del plan anual
+  xml: ^7.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ">=5.0.0 <8.0.0"
+  drift_dev: ^2.35.0
+  build_runner: ^2.15.0
+
+flutter:
+  uses-material-design: true
+
+  # Plantilla de Excel para importar el plan anual (datos de ejemplo).
+  assets:
+    - assets/plantilla/
