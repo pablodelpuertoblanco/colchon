@@ -84,9 +84,11 @@ Desde **Ajustes**: presupuestos, recurrentes, categorías (crear, editar, agrupa
 - **Importar el plan desde un Excel** (Ajustes → Importar plan, o "Importar Excel (.xlsx)" en el plan vacío). Solo acepta `.xlsx`: eliges el archivo y, antes de importar, ves un resumen: año, partidas, ingresos y gastos previstos, categorías nuevas y las que se actualizan.
   - **Formato** (el de la plantilla que la app comparte con "Descargar la plantilla", `assets/plantilla/plantilla_plan.xlsx`):
     - Hoja **Plan**: una fila de cabecera con los 12 meses (Ene… Dic o los nombres completos) y una fila por categoría. Columnas opcionales: **Tipo** (Ingreso o Gasto), **Bloque** (Necesario fijo, Necesario variable, Prescindible, Ocio, Ahorro), **Grupo**, **Emoji** y **Ahorro** ("Sí" si cuenta como ahorro).
-    - Sin columnas Tipo y Bloque también vale: un título como "INGRESOS", "NECESARIOS FIJOS" o "PRESCINDIBLES" marca las filas que vienen debajo. Las filas y columnas de totales se ignoran, y los importes pueden ser números o texto ("1.234,56 €").
+    - Sin columnas Tipo y Bloque también vale: un título como "INGRESOS", "GASTOS FIJOS" o "PRESCINDIBLES" marca las filas que vienen debajo, en su propia fila o en una columna a la izquierda del nombre. Un título que no reconoce ("VIVIENDA", "MASCOTAS"…) después de los ingresos indica que empiezan los gastos. Las filas y columnas de totales se ignoran, y los importes pueden ser números o texto ("1.234,56 €").
     - Hojas opcionales **Ajustes** (año, día de inicio de mes, saldo mínimo y objetivos 50/30/20) y **Patrimonio** (bienes y deudas mes a mes).
+  - El resumen nombra las partidas que entrarán como ingresos, para detectar a tiempo una mal clasificada.
   - Reutiliza las categorías que ya existen (por nombre) y respeta su emoji, color y bloque si el Excel no los indica. Se puede repetir sin duplicar nada.
+- **Mover una partida del plan** (tocarla → "Mover"): a otro bloque de gastos, a "Gasto sin clasificar" o de gasto a ingreso (y al revés). Al cambiar de tipo se lleva sus subcategorías, y sus movimientos y recurrentes pasan a ser del nuevo tipo; si tiene movimientos, la app pide confirmación.
   - El `.xlsx` se lee sin librerías de Excel: es un ZIP con XML dentro, que se abre con `dart:io` y el paquete `xml` (`lib/data/xlsx_reader.dart` y `lib/data/plan_excel.dart`).
 - La app ya no incluye ningún plan de ejemplo con datos reales.
 
